@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_PATTERN">%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+    </Appenders>
+    <Loggers>
+
+        <!-- spring container loggers -->
+        <Logger name="org.springframework" level="warn" />
+        <Logger name="org.springframework.context.support" level="warn" />
+        <Logger name="org.springframework.context.annotation" level="warn" />
+        <Logger name="org.springframework.beans.factory.support" level="warn" />
+        <Logger name="org.springframework.beans.factory.annotation" level="warn" />
+        
+        <Logger name="org.hibernate.validator" level="warn" />
+		
+		<!-- jersey loggers -->
+		<Logger name="javax.ws.rs" level="info"/>
+		<Logger name="org.glassfish" level="info"/>
+
+        <!-- application loggers -->
+        <Logger name="com.mutsys" level="debug" />
+
+        <Root level="info">
+            <AppenderRef ref="Console" />
+        </Root>
+
+    </Loggers>
+</Configuration>
